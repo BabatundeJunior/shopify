@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block title%}Login{% endblock title %}
+
+{% block content %}
+    <h1>Login</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+<br>
+    <p>don't have an account? <a href="{% url 'core:signup' %}">signup</a></p>
+
+
+{% endblock content %}

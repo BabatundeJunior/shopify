@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block title %}New Product{% endblock title %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">{{ title }}</button>
+    </form>
+
+
+{% endblock content %}

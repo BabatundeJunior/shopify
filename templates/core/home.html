@@ -1,0 +1,27 @@
+
+{% extends 'core/base.html' %}
+
+{% block title %}Home{% endblock title%}
+
+{% block content %}
+        <h1 style="margin: 50px 0;">Shopify</h1>
+<div class="row">
+    {% for product in products %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ product.image.url }}" class="card-img-top" alt="..." width="300" height="300">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">$ {{ product.price }}</p>
+            <p></p>
+            <a href="{% url 'core:detail' product.pk %}" class="btn btn-primary">Details</a>
+            {% if product.created_by == request.user %}
+              <a href="{% url 'core:edit-items' product.pk %}" class="btn btn-success">Edit</a>
+            {% endif %}
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
